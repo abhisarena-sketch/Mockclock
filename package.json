@@ -1,0 +1,39 @@
+{
+  "name": "mockclock-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "MockClock by Workfonic Labs: control time, test anything.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/core",
+    "packages/node",
+    "packages/cli",
+    "apps/playground"
+  ],
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "build": "npm run build --workspace @workfonic/mockclock && npm run build --workspace @workfonic/mockclock-node && npm run build --workspace @workfonic/mockclock-cli && npm run build --workspace @workfonic/mockclock-playground",
+    "build:packages": "npm run build --workspace @workfonic/mockclock && npm run build --workspace @workfonic/mockclock-node && npm run build --workspace @workfonic/mockclock-cli",
+    "typecheck": "tsc -p packages/core/tsconfig.json --noEmit && tsc -p packages/node/tsconfig.json --noEmit && tsc -p packages/cli/tsconfig.json --noEmit && tsc -p tests/tsconfig.json --noEmit && tsc -p examples/tsconfig.json --noEmit && tsc -p apps/playground/tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "examples": "node scripts/run-examples.mjs",
+    "verify:pack": "node scripts/verify-pack.mjs",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build && npm run test:e2e"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.7",
+    "eslint": "^10.15.0",
+    "tsup": "^9.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.74.0",
+    "vitest": "^5.1.2"
+  }
+}
