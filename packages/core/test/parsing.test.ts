@@ -3,7 +3,7 @@ import {
   AmbiguousDateInputError,
   InvalidDateError,
   InvalidDurationError,
-  MockClockError,
+  type MockClockError,
   describeDuration,
   formatIsoDuration,
   normalizeDuration,

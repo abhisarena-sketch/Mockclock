@@ -160,7 +160,7 @@ export async function run(argv: readonly string[], io: CliIO): Promise<number> {
     json = Boolean(values.json);
 
     if (values.version) {
-      json ? io.stdout(`${JSON.stringify({ version: VERSION })}\n`) : io.stdout(`${VERSION}\n`);
+      io.stdout(json ? `${JSON.stringify({ version: VERSION })}\n` : `${VERSION}\n`);
       return EXIT_OK;
     }
     const [name, ...args] = positionals;
@@ -344,7 +344,8 @@ class Context {
           clock.freeze(parseInstant(this.#values.from, '--from'));
         }
         const from = clock.toISOString();
-        command === 'advance' ? clock.advance(duration) : clock.rewind(duration);
+        if (command === 'advance') clock.advance(duration);
+        else clock.rewind(duration);
         const persisted = await this.#persist(clock);
         return this.#result(command, clock, persisted, { from, duration: formatIsoDuration(duration) }, this.#statelessNote(true), `${command === 'advance' ? 'Advanced' : 'Rewound'} ${describeDuration(duration)} from ${from}`);
       }
