@@ -1,0 +1,56 @@
+{
+  "name": "@workfonic/mockclock-node",
+  "version": "0.1.0",
+  "description": "Node.js integration for MockClock: clock injection, AsyncLocalStorage context, explicit and reversible global Date patching, and fake-timer adapters.",
+  "keywords": ["clock", "time", "testing", "mock", "date", "fake-timers", "vitest", "jest", "asynclocalstorage"],
+  "license": "MIT",
+  "author": "Workfonic Labs",
+  "homepage": "https://github.com/abhisarena-sketch/mockclock/tree/main/packages/node#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abhisarena-sketch/mockclock.git",
+    "directory": "packages/node"
+  },
+  "bugs": "https://github.com/abhisarena-sketch/mockclock/issues",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "README.md", "LICENSE", "CHANGELOG.md"],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "prepack": "node ../../scripts/copy-package-docs.mjs"
+  },
+  "dependencies": {
+    "@workfonic/mockclock": "0.1.0"
+  },
+  "peerDependencies": {
+    "@sinonjs/fake-timers": ">=11"
+  },
+  "peerDependenciesMeta": {
+    "@sinonjs/fake-timers": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

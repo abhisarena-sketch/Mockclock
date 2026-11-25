@@ -1,0 +1,37 @@
+name: Bug report
+description: Something in MockClock behaves incorrectly
+labels: [bug]
+body:
+  - type: dropdown
+    id: package
+    attributes:
+      label: Package
+      options:
+        - "@workfonic/mockclock (core)"
+        - "@workfonic/mockclock-node"
+        - "@workfonic/mockclock-cli"
+        - Playground
+        - Documentation
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: For date and time bugs, include the exact inputs, the time zone, the result you got and the result you expected.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      render: ts
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: MockClock version and the output of `node -p "process.versions.node + ' icu ' + process.versions.icu + ' tz ' + process.versions.tz"`
+    validations:
+      required: true

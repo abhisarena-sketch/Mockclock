@@ -1,0 +1,12 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "types": ["node"],
+    "paths": {
+      "@workfonic/mockclock": ["../packages/core/src/index.ts"],
+      "@workfonic/mockclock-node": ["../packages/node/src/index.ts"]
+    }
+  },
+  "include": ["*.ts"]
+}

@@ -1,0 +1,20 @@
+name: Feature request
+description: Suggest an improvement or a new capability
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to test?
+      description: Describe the time-dependent behaviour and why it is hard to test today.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API or behaviour
+      render: ts
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
