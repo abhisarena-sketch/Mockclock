@@ -1,0 +1,22 @@
+name: Scenario request
+description: Propose a new built-in scenario for the registry
+labels: [scenario]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Scenario id
+      placeholder: end-of-trading-day
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What moment does it simulate, and which events should it list?
+    validations:
+      required: true
+  - type: textarea
+    id: params
+    attributes:
+      label: Parameters and sensible defaults
+      description: Include the time zone and any calendar rules (business days, fiscal years) involved.

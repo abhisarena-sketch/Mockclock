@@ -17,7 +17,7 @@
   "scripts": {
     "build": "npm run build --workspace @workfonic/mockclock && npm run build --workspace @workfonic/mockclock-node && npm run build --workspace @workfonic/mockclock-cli && npm run build --workspace @workfonic/mockclock-playground",
     "build:packages": "npm run build --workspace @workfonic/mockclock && npm run build --workspace @workfonic/mockclock-node && npm run build --workspace @workfonic/mockclock-cli",
-    "typecheck": "tsc -p packages/core/tsconfig.json --noEmit && tsc -p packages/node/tsconfig.json --noEmit && tsc -p packages/cli/tsconfig.json --noEmit && tsc -p tests/tsconfig.json --noEmit && tsc -p examples/tsconfig.json --noEmit && tsc -p apps/playground/tsconfig.json --noEmit",
+    "typecheck": "tsc -p packages/core/tsconfig.json --noEmit && tsc -p packages/node/tsconfig.json --noEmit && tsc -p packages/cli/tsconfig.json --noEmit && tsc -p tests/tsconfig.json --noEmit && tsc -p examples/tsconfig.json --noEmit && tsc -p apps/playground/tsconfig.typecheck.json --noEmit",
     "lint": "eslint .",
     "test": "vitest run",
     "test:watch": "vitest",

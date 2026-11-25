@@ -17,6 +17,7 @@ export default defineConfig({
     environment: 'node',
     // Global Date patching is process-wide; keep files isolated.
     isolate: true,
-    env: { TZ: 'UTC' },
+    // Library code never reads the machine time zone; CI also runs the suite under other zones.
+    env: { TZ: process.env.MOCKCLOCK_TEST_TZ ?? 'UTC' },
   },
 });

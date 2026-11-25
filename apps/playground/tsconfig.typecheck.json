@@ -1,0 +1,11 @@
+{
+  "//": "Used by `npm run typecheck` so the playground can be type-checked before the core package is built. Next.js itself uses tsconfig.json and the built package.",
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "incremental": false,
+    "paths": {
+      "@/*": ["./*"],
+      "@workfonic/mockclock": ["../../packages/core/src/index.ts"]
+    }
+  }
+}

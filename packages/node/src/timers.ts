@@ -78,7 +78,10 @@ export function linkTimers(clock: MockClock, driver: TimerDriver): TimerLink {
 /** The parts of `@sinonjs/fake-timers` used by {@link installFakeTimers}. */
 export interface FakeTimersModuleLike {
   withGlobal(global: object): {
-    install(config: { now?: number; toFake?: string[]; shouldClearNativeTimers?: boolean }): FakeTimersClockLike;
+    // `any` keeps this structurally compatible with every @sinonjs/fake-timers
+    // version's own Config type; installFakeTimers passes { now, toFake, shouldClearNativeTimers }.
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    install(config: any): FakeTimersClockLike;
   };
 }
 
