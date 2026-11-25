@@ -38,7 +38,7 @@ jobs:
         run: |
           mkdir -p tarballs
           for p in core node cli; do (cd packages/$p && npm pack --pack-destination ../../tarballs); done
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: tarballs
           path: tarballs/*.tgz
